@@ -17,41 +17,62 @@
       color: #FFFFFF;
     }
 
-  header {
+header {
   position: fixed;
   top: 0;
   width: 100%;
   background: #111111;
-  padding: 10px 20px;
+  padding: 10px 15px;
   z-index: 999;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
 
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  max-width: 900px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 6px 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a.active {
+  background: #FFFFFF;
+  color: #000000;
+  font-weight: bold;
+}
+
+/* Media query untuk layar kecil / hp */
+@media (max-width: 480px) {
+  header {
+    padding: 8px 10px;
   }
 
+  nav {
+    gap: 10px;
+  }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+  nav a {
+    padding: 5px 8px;
+    font-size: 14px;
+  }
+}
 
-    nav a {
-      color: #FFFFFF;
-      text-decoration: none;
-      padding: 5px 10px;
-      transition: background-color 0.3s, color 0.3s;
-      font-weight: 600;
-      border-radius: 4px;
-    }
-
-    nav a.active {
-      background: #FFFFFF;
-      color: #000000;
-      font-weight: bold;
-    }
 
     section {
       padding: 120px 20px 60px;
