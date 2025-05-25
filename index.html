@@ -305,13 +305,62 @@
     }
 
     @media (max-width: 600px) {
-      #home h1 {
-        font-size: 28px;
-      }
-      .contact-card {
-        width: 100%;
-      }
-    }
+  #home h1 {
+    font-size: 28px;
+  }
+
+  .avatar {
+    width: 140px;  /* kecilkan agar muat di layar hp */
+    margin-bottom: 15px;
+  }
+
+  .avatar img {
+    width: 100%; /* sesuaikan */
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important; /* 1 kolom untuk mobile */
+    gap: 20px;
+    padding: 20px 10px;
+  }
+
+  .project-card {
+    padding-bottom: 15px;
+  }
+
+  #home p {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  #portfolio h2,
+  #about h2,
+  #contact h2 {
+    font-size: 24px;
+    padding: 0 10px;
+  }
+
+  .about-container {
+    padding: 0 10px;
+  }
+
+  .about-card {
+    font-size: 16px;
+  }
+
+  .contact-card {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px 15px;
+  }
+
+  .contact-card img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
   </style>
 </head>
 <body>
