@@ -330,6 +330,28 @@ nav a.active {
       font-weight: 600;
     }
 
+    /* Media query untuk mode desktop kecil / tablet kecil */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* ubah dari 4 kolom ke 2 kolom */
+    gap: 25px;
+    padding: 30px 20px;
+    max-width: 900px;
+  }
+
+  .avatar {
+    width: 180px; /* kecilkan avatar agar muat */
+  }
+
+  #home h1 {
+    font-size: 32px;
+  }
+
+  section {
+    padding: 100px 15px 50px;
+  }
+}
+
     @media (max-width: 600px) {
   #home h1 {
     font-size: 28px;
