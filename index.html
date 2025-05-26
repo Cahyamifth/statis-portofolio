@@ -9,6 +9,79 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
+
+.pendidikan-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  user-select: none;
+}
+
+.pendidikan-card {
+  background: #000000;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  user-select: none;
+}
+
+  .skill-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  user-select: none;
+}
+
+.section-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.skill-card {
+  background: #000000;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  user-select: none;
+}
+
+.skill-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.skill-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  user-select: none;
+}
+
+.skill-item {
+  font-size: 13px;
+  user-select: none;
+}
+
+.skill-bar {
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 3px;
+  user-select: none;
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 4px;
+  transition: width 1.4s ease;
+  user-select: none;
+}
+  
     body {
       margin: 0;
       font-family: "Times New Roman", Times, serif;
@@ -411,6 +484,25 @@ nav a.active {
 
   </style>
 </head>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fill = entry.target.querySelector(".skill-fill");
+          const skillValue = fill.getAttribute("data-skill") + '%';
+          fill.style.width = skillValue;
+          observer.unobserve(entry.target); // agar hanya animasi sekali
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.skill-bar').forEach(bar => {
+      observer.observe(bar);
+    });
+  });
+</script>
+
 <body>
 
 <header>
@@ -427,8 +519,18 @@ nav a.active {
     <img src="assets/img/IMG_45656.png" alt="Foto Cahya" />
   </div>
   <h1 data-aos="fade-up">Cahya Miftahul Falah</h1>
-  <p data-aos="fade-up" data-aos-delay="200">S1 Informatika | Cyber Security Enthusiast</p>
+  <p data-aos="fade-up" data-aos-delay="200">S1 Informatika | Cyber Security</p>
+
+  <!-- Tombol CV -->
+  <div style="margin-top: 20px;" data-aos="fade-up" data-aos-delay="300">
+    <a href="https://drive.google.com/file/d/1jAW1hXKlmmJJrp5vmYdKljxCy7q4-Hbi/view?usp=sharing" target="_blank" rel="noopener">
+      <button style="padding: 12px 24px; font-size: 16px; background-color: #000000; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Download CV
+      </button>
+    </a>
+  </div>
 </section>
+
 
 <section id="portfolio">
   <h2 style="text-align:center;" data-aos="fade-up">My Projects</h2>
@@ -467,36 +569,97 @@ nav a.active {
     </div>
 
     <!-- Project 4 -->
-    <div class="project-card" data-aos="fade-up">
-      <img src="https://via.placeholder.com/300x180" alt="APLIKASI WEB PENGELOLA OBAT">
-      <div style="padding: 10px 15px;">
-        <h3>KLINIK DOKTER ANITA PURBA</h3>
-        <p><strong>Peran:</strong> Frontend Developer</p>
-        <p>Platform katalog produk konter dan UMKM, terintegrasi dengan app pulsa.</p>
-      </div>
-      <a href="detail-dibukaolshop.html" class="btn" target="_blank" rel="noopener">Lihat Detail</a>
-    </div>
+<div class="project-card" data-aos="fade-up">
+  <img src="https://via.placeholder.com/300x180" alt="APLIKASI WEB PENGELOLA OBAT">
+  <div style="padding: 10px 15px;">
+    <h3>KLINIK DOKTER ANITA PURBA</h3>
+    <p><strong>Peran:</strong> Frontend Developer</p>
+    <p>Platform katalog produk konter dan UMKM, terintegrasi dengan app pulsa.</p>
   </div>
-</section>
+  <a href="detail-dibukaolshop.html" class="btn" target="_blank" rel="noopener">Lihat Detail</a>
+</div>
 
+</section>
 
 <section id="about">
   <h2 style="text-align:center; margin-bottom: 40px;" data-aos="fade-up">About Me</h2>
-  <div class="about-container">
-    <div class="about-card" data-aos="fade-up">
-      <a href="https://goo.gl/maps/xyz123" target="_blank" rel="noopener">SDN KARAPIAK II</a>
+  <div class="about-container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px;">
+
+    <!-- Bagian Pendidikan -->
+    <div class="pendidikan-section" style="flex: 1; min-width: 250px;" data-aos="fade-up" data-aos-delay="400">
+  <div class="pendidikan-card" data-aos="fade-left">
+    <h3 class="section-title" style="text-align: center; margin-bottom: 20px; user-select: none;">
+      Pendidikan
+    </h3>
+      <div class="about-card" data-aos="fade-up">
+        <a href="https://goo.gl/maps/xyz123" target="_blank" rel="noopener">SDN KARAPIAK II</a>
+      </div>
+      <div class="about-card" data-aos="fade-up" data-aos-delay="200">
+        <a href="#">SMK GUNA DHARMA NUSANTARA</a>
+      </div>
+      <div class="about-card" data-aos="fade-up" data-aos-delay="300">
+        <a href="#">SMP FK BINA MUDA</a>
+      </div>
+      <div class="about-card" data-aos="fade-up" data-aos-delay="100">
+        <a href="https://unibi.ac.id" target="_blank" rel="noopener">UNIVERSITAS INFORMATIKA DAN BISNIS INDONESIA</a>
+      </div>
+      </div>
     </div>
-    <div class="about-card" data-aos="fade-up" data-aos-delay="200">
-      <a href="#">SMK GUNA DHARMA NUSANTARA</a>
-    </div>
-    <div class="about-card" data-aos="fade-up" data-aos-delay="300">
-      <a href="#">SMP FK BINA MUDA</a>
-    </div>
-    <div class="about-card" data-aos="fade-up" data-aos-delay="100">
-      <a href="https://unibi.ac.id" target="_blank" rel="noopener">UNIVERSITAS INFORMATIKA DAN BISNIS INDONESIA</a>
+
+<!-- Bagian Skill -->
+<div class="skill-section" style="flex: 1; min-width: 250px;" data-aos="fade-up" data-aos-delay="400">
+  <div class="skill-card" data-aos="fade-left">
+    <h3 class="section-title" style="text-align: center; margin-bottom: 20px; user-select: none;">
+      Skill
+    </h3>
+
+    <!-- Pemrograman -->
+  <div class="skill-card" data-aos="fade-left">
+    <h4 class="skill-title" data-category="programming">Pemrograman</h4>
+    <div class="skill-wrapper" data-category="programming">
+      <div class="skill-item">
+        <span>PHP</span>
+        <div class="skill-bar">
+          <div class="skill-fill" data-skill="70" style="background-color: #007bff;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span>HTML</span>
+        <div class="skill-bar">
+          <div class="skill-fill" data-skill="90" style="background-color: #007bff;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span>JavaScript</span>
+        <div class="skill-bar">
+          <div class="skill-fill" data-skill="60" style="background-color: #007bff;"></div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- Desain -->
+  <div class="skill-card" data-aos="fade-left" data-aos-delay="200">
+    <h4 class="skill-title" data-category="design">Desain</h4>
+    <div class="skill-wrapper" data-category="design">
+      <div class="skill-item">
+        <span>Canva</span>
+        <div class="skill-bar">
+          <div class="skill-fill" data-skill="85" style="background-color: #17a2b8;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span>Figma</span>
+        <div class="skill-bar">
+          <div class="skill-fill" data-skill="75" style="background-color: #17a2b8;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </section>
+
 
 <section id="contact">
   <h2 style="text-align:center;" data-aos="fade-down">Contact</h2>
