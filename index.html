@@ -3,7 +3,6 @@
 <head>
   <link rel="icon" href="assets/img/favicon.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cahyamift | Portfolio</title>
@@ -12,21 +11,24 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
-
+    /* =======================
+       SIGNATURE CONTAINER
+    ======================== */
     .signature-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: auto;
-}
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: auto;
+    }
+    @media (max-width: 768px) {
+      .signature-container {
+        padding: 10px;
+      }
+    }
 
-@media (max-width: 768px) {
-  .signature-container {
-    padding: 10px;
-  }
-}
-
-
+    /* =======================
+       BODY & GENERAL
+    ======================== */
     body {
       margin: 0;
       font-family: "Times New Roman", Times, serif;
@@ -35,93 +37,82 @@
       color: #FFFFFF;
     }
 
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #111111;
-  padding: 10px 15px;
-  z-index: 999;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    /* =======================
+       HEADER & NAVIGATION
+    ======================== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #111111;
+      padding: 10px 15px;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      max-width: 900px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 6px 12px;
+      font-weight: 600;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav a.active {
+      background: #FFFFFF;
+      color: #000000;
+      font-weight: bold;
+    }
+    @media (max-width: 480px) {
+      header {
+        padding: 8px 10px;
+      }
+      nav {
+        gap: 10px;
+      }
+      nav a {
+        padding: 5px 8px;
+        font-size: 14px;
+      }
+    }
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  max-width: 900px;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-nav a {
-  color: #FFFFFF;
-  text-decoration: none;
-  padding: 6px 12px;
-  font-weight: 600;
-  border-radius: 4px;
-  white-space: nowrap;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-nav a.active {
-  background: #FFFFFF;
-  color: #000000;
-  font-weight: bold;
-}
-
-#home {
-    min-height: 100vh;
-}
-
-#home h1 {
-    font-size: clamp(1.5rem, 5vw, 3rem);
-}
-
-/* Media query untuk layar kecil / hp */
-@media (max-width: 480px) {
-  header {
-    padding: 8px 10px;
-  }
-
-  nav {
-    gap: 10px;
-  }
-
-  nav a {
-    padding: 5px 8px;
-    font-size: 14px;
-  }
-}
-
-
+    /* =======================
+       SECTION GENERAL
+    ======================== */
     section {
       padding: 120px 80px 60px;
       min-height: 100vh;
       box-sizing: border-box;
     }
 
+    /* =======================
+       CV BUTTON ANIMATION
+    ======================== */
+    #cv-button-wrapper {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    #cv-button-wrapper.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* Saat ditampilkan */
-#cv-button-wrapper {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-}
-
-/*saat disembunyikan */
-#cv-button-wrapper.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-
+    /* =======================
+       HOME SECTION
+    ======================== */
     #home {
       position: relative;
       background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80');
@@ -133,8 +124,9 @@ nav a.active {
       align-items: center;
       justify-content: center;
       text-align: center;
+      min-height: 100vh;
+      padding: 60px 20px;
     }
-
     #home::before {
       content: "";
       position: absolute;
@@ -142,27 +134,23 @@ nav a.active {
       background: rgba(0, 0, 0, 0.75);
       z-index: 0;
     }
-
     #home > * {
       position: relative;
       z-index: 1;
     }
-
     .avatar {
-      width: 220px; /* diperkecil lagi */
+      width: 220px;
       margin-bottom: 20px;
     }
-
     .avatar img {
       width: 70%;
       height: auto;
-      border: none; /* hilangkan garis */
-      box-shadow: none; /* hilangkan shadow */
+      border: none;
+      box-shadow: none;
       border-radius: 12px;
       display: block;
       margin: 0 auto;
     }
-
     #home h1 {
       margin: 0;
       font-size: 36px;
@@ -170,44 +158,91 @@ nav a.active {
       color: #FFFFFF;
       text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.9);
     }
-
     #home p {
       font-size: 18px;
       color: #CCCCCC;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
     }
+    @media (max-width: 480px) {
+      #home h1 {
+        font-size: 1.8rem;
+      }
+      #home p {
+        font-size: 1rem;
+      }
+      .btn-download-cv {
+        width: 80%;
+        font-size: 0.95rem;
+      }
+    }
+    @media (max-width: 600px) {
+      #home h1 {
+        font-size: 28px;
+      }
+      .avatar {
+        width: 140px;
+        margin-bottom: 15px;
+      }
+      .avatar img {
+        width: 100%;
+      }
+      #home p {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+    }
 
+    /* =======================
+       DOWNLOAD CV BUTTON
+    ======================== */
+    .btn-download-cv {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+      font-size: 1rem;
+    }
+    .btn-download-cv:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* =======================
+       PORTFOLIO SECTION
+    ======================== */
     #portfolio, #about, #contact {
       background-image: url('assets/img/bg1.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      /* tambah overlay gelap */
       position: relative;
       z-index: 1;
     }
-
     #portfolio::before,
     #about::before,
     #contact::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.7); /* pergelap */
+      background: rgba(0, 0, 0, 0.7);
       z-index: -1;
     }
-
     .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 kolom */
-  gap: 30px;
-  padding: 40px;
-  max-width: 1200px; /* sesuaikan lebar maksimal */
-  margin: auto;
-  position: relative;
-  z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
     }
-
     .project-card {
       background: rgba(0, 0, 0, 0.8);
       border-radius: 12px;
@@ -220,12 +255,10 @@ nav a.active {
       position: relative;
       z-index: 2;
     }
-
     .project-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
     }
-
     .project-card img {
       width: 100%;
       height: auto;
@@ -233,23 +266,19 @@ nav a.active {
       filter: brightness(90%);
       transition: filter 0.3s;
     }
-
     .project-card img:hover {
       filter: brightness(100%);
     }
-
     .project-card h3 {
       margin: 15px 0 10px;
       font-size: 20px;
       font-weight: 700;
     }
-
     .project-card p {
       padding: 0 20px;
       font-size: 15px;
       color: #CCCCCC;
     }
-
     .project-card .btn {
       display: inline-block;
       margin-top: 12px;
@@ -261,13 +290,48 @@ nav a.active {
       transition: background-color 0.3s, color 0.3s;
       font-weight: 600;
     }
-
     .project-card .btn:hover {
       background-color: #000000;
       color: #FFFFFF;
       border: 1px solid #FFFFFF;
     }
+    @media (min-width: 481px) and (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        padding: 30px 20px;
+        max-width: 900px;
+      }
+      .avatar {
+        width: 180px;
+      }
+      #home h1 {
+        font-size: 32px;
+      }
+      section {
+        padding: 100px 80px 50px;
+      }
+    }
+    @media (max-width: 600px) {
+      .projects-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        padding: 20px 10px;
+      }
+      .project-card {
+        padding-bottom: 15px;
+      }
+      #portfolio h2,
+      #about h2,
+      #contact h2 {
+        font-size: 24px;
+        padding: 0 10px;
+      }
+    }
 
+    /* =======================
+       ABOUT SECTION & SKILLS
+    ======================== */
     .about-container {
       max-width: 800px;
       margin: 0 auto;
@@ -275,7 +339,6 @@ nav a.active {
       position: relative;
       z-index: 2;
     }
-
     .about-card {
       background: rgba(0, 0, 0, 0.8);
       padding: 15px 20px;
@@ -289,22 +352,80 @@ nav a.active {
       transition: background-color 0.3s, color 0.3s;
       border: 1px solid #FFFFFF;
     }
-
     .about-card:hover {
       background-color: #FFFFFF;
       color: #000000;
       cursor: pointer;
     }
-
     .about-card a {
       color: inherit;
       text-decoration: none;
     }
-
     .about-card a:hover {
       text-decoration: underline;
     }
 
+    /* About Grid & Skills Bar */
+    .about-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .about-side,
+    .about-center {
+      flex: 1 1 250px;
+      min-width: 250px;
+    }
+    .skills-container .skill {
+      margin-bottom: 20px;
+    }
+    .skill-bar-bg {
+      background-color: #333;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 18px;
+      margin: 6px 0;
+    }
+    .skill-bar-fill {
+      background-color: #007bff;
+      height: 100%;
+      width: calc(var(--skill-level) * 20%);
+      transition: width 1s ease-in-out;
+      border-radius: 8px 0 0 8px;
+    }
+    .skill-level {
+      font-weight: 600;
+      margin-left: 8px;
+      color: #ddd;
+    }
+    @media (max-width: 768px) {
+      .about-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .about-side,
+      .about-center {
+        min-width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      .about-container {
+        padding: 0 10px;
+      }
+      .about-card {
+        font-size: 16px;
+      }
+    }
+
+    /* =======================
+       CONTACT SECTION
+    ======================== */
     .contact-container {
       display: flex;
       justify-content: center;
@@ -315,7 +436,6 @@ nav a.active {
       position: relative;
       z-index: 2;
     }
-
     .contact-card {
       display: flex;
       align-items: center;
@@ -329,179 +449,53 @@ nav a.active {
       transition: background-color 0.3s, color 0.3s;
       border: 1.5px solid #FFFFFF;
     }
-
     .contact-card:hover {
       background: #FFFFFF;
       color: #000000;
       cursor: pointer;
     }
-
-    /* Icon colors sesuai platform */
     .contact-card img {
       width: 40px;
       height: 40px;
-      filter: none; /* hapus invert supaya warna asli tampil */
+      filter: none;
       transition: filter 0.3s;
     }
-
-    /* Warna ikon khusus tiap platform */
-    .contact-whatsapp img {
-      filter: none;
-    }
-
-    .contact-instagram img {
-      filter: none;
-    }
-
+    .contact-whatsapp img,
+    .contact-instagram img,
     .contact-github img {
       filter: none;
     }
-
     .contact-email img {
       filter: none;
       opacity: 0.7;
     }
-
     .contact-card:hover img {
       filter: none;
     }
-
     .contact-card a {
       text-decoration: none;
       color: inherit;
       font-weight: 600;
     }
-
-    #home {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.btn-download-cv {
-    margin-top: 20px;
-    padding: 12px 24px;
-    font-size: 1rem;
-}
-
-
-    .btn-download-cv {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background-color: #007bff;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-}
-
-.btn-download-cv:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-
-@media (max-width: 480px) {
-    #home h1 {
-        font-size: 1.8rem;
-    }
-
-    #home p {
-        font-size: 1rem;
-    }
-
-    .btn-download-cv {
-        width: 80%;
-        font-size: 0.95rem;
-    }
-}
-
-
-    /* Media query untuk mode desktop kecil / tablet kecil */
-@media (min-width: 481px) and (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr); /* ubah dari 4 kolom ke 2 kolom */
-    gap: 25px;
-    padding: 30px 20px;
-    max-width: 900px;
-  }
-
-  .avatar {
-    width: 180px; /* kecilkan avatar agar muat */
-  }
-
-  #home h1 {
-    font-size: 32px;
-  }
-
-  section {
-    padding: 100px 80px 50px;
-  }
-}
-
     @media (max-width: 600px) {
-  #home h1 {
-    font-size: 28px;
-  }
-
-  .avatar {
-    width: 140px;  /* kecilkan agar muat di layar hp */
-    margin-bottom: 15px;
-  }
-
-  .avatar img {
-    width: 100%; /* sesuaikan */
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr !important; /* 1 kolom untuk mobile */
-    gap: 20px;
-    padding: 20px 10px;
-  }
-
-  .project-card {
-    padding-bottom: 15px;
-  }
-
-  #home p {
-    font-size: 16px;
-    padding: 0 10px;
-  }
-
-  #portfolio h2,
-  #about h2,
-  #contact h2 {
-    font-size: 24px;
-    padding: 0 10px;
-  }
-
-  .about-container {
-    padding: 0 10px;
-  }
-
-  .about-card {
-    font-size: 16px;
-  }
-
-  .contact-card {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 10px;
-    padding: 10px 15px;
-  }
-
-  .contact-card img {
-    width: 30px;
-    height: 30px;
-  }
-}
-
+      .contact-card {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 10px 15px;
+      }
+      .contact-card img {
+        width: 30px;
+        height: 30px;
+      }
+    }
   </style>
 </head>
 <body>
 
+<!-- =======================
+     HEADER & NAVIGATION
+======================== -->
 <header>
   <nav>
     <a href="#home" class="nav-link active">Home</a>
@@ -511,21 +505,25 @@ nav a.active {
   </nav>
 </header>
 
+<!-- =======================
+     HOME SECTION
+======================== -->
 <section id="home">
   <div class="avatar" data-aos="zoom-in">
     <img src="assets/img/IMG_45656.png" alt="Foto Cahya" />
   </div>
   <h1 data-aos="fade-up" data-aos-delay="100">Cahya Miftahul Falah</h1>
   <p data-aos="fade-up" data-aos-delay="200">S1 Informatika | Cyber Security Enthusiast</p>
-  
   <div id="cv-button-wrapper" data-aos="fade-up" data-aos-delay="300">
-  <a href="https://drive.google.com/your-cv-link-here" target="_blank" class="btn-download-cv">
-    Download CV
-  </a>
-</div>
+    <a href="https://drive.google.com/your-cv-link-here" target="_blank" class="btn-download-cv">
+      Download CV
+    </a>
+  </div>
 </section>
 
-
+<!-- =======================
+     PORTFOLIO SECTION
+======================== -->
 <section id="portfolio">
   <h2 style="text-align:center;" data-aos="fade-up">My Projects</h2>
   <div class="projects-grid">
@@ -539,7 +537,6 @@ nav a.active {
       </div>
       <a href="https://jurnalunibi.unibi.ac.id/ojs/index.php/in_search/article/view/590" class="btn" target="_blank" rel="noopener">Lihat Detail</a>
     </div>
-
     <!-- Project 2 -->
     <div class="project-card" data-aos="fade-up">
       <img src="https://via.placeholder.com/300x180" alt="Re-Arsip BJB">
@@ -550,7 +547,6 @@ nav a.active {
       </div>
       <a href="https://github.com/Cahyamifth/re-arsip" class="btn" target="_blank" rel="noopener">Lihat Detail</a>
     </div>
-
     <!-- Project 3 -->
     <div class="project-card" data-aos="fade-up">
       <img src="https://via.placeholder.com/300x180" alt="UI/UX">
@@ -561,7 +557,6 @@ nav a.active {
       </div>
       <a href="detail-konterpulsa.html" class="btn" target="_blank" rel="noopener">Lihat Detail</a>
     </div>
-
     <!-- Project 4 -->
     <div class="project-card" data-aos="fade-up">
       <img src="#" alt="APLIKASI WEB PENGELOLA OBAT">
@@ -575,13 +570,12 @@ nav a.active {
   </div>
 </section>
 
-
-
+<!-- =======================
+     ABOUT SECTION
+======================== -->
 <section id="about">
   <h2 style="text-align:center; margin-bottom: 40px;" data-aos="fade-up">About Me</h2>
-  
   <div class="about-grid">
-    
     <!-- Hobi -->
     <div class="about-side left" data-aos="fade-right">
       <h3>Hobi</h3>
@@ -590,7 +584,6 @@ nav a.active {
         <li>💻 Programming</li>
       </ul>
     </div>
-
     <!-- Pendidikan -->
     <div class="about-center" data-aos="fade-up">
       <div class="about-card"><a href="https://goo.gl/maps/xyz123" target="_blank">SDN KARAPIAK II</a></div>
@@ -598,7 +591,6 @@ nav a.active {
       <div class="about-card"><a href="#">SMK GUNA DHARMA NUSANTARA</a></div>
       <div class="about-card"><a href="https://unibi.ac.id" target="_blank">UNIVERSITAS INFORMATIKA DAN BISNIS INDONESIA</a></div>
     </div>
-
     <!-- Skill -->
     <div class="about-side right skills-container" data-aos="fade-left">
       <h3>Skills</h3>
@@ -617,69 +609,44 @@ nav a.active {
         <span class="skill-level">3 / 5</span>
       </div>
     </div>
-    </section>
-<style>
- .about-grid {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
+  </div>
+</section>
 
-.about-side,
-.about-center {
-  flex: 1 1 250px;
-  min-width: 250px;
-}
+<!-- =======================
+     CONTACT SECTION
+======================== -->
+<section id="contact">
+  <h2 style="text-align:center;" data-aos="fade-down">Contact</h2>
+  <div class="contact-container">
+    <div class="contact-card contact-whatsapp" data-aos="fade-down">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+      <a href="https://wa.me/62895344440523" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="contact-card contact-instagram" data-aos="fade-down" data-aos-delay="100">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" />
+      <a href="https://instagram.com/cahyamift" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="contact-card contact-github" data-aos="fade-down" data-aos-delay="200">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" />
+      <a href="https://github.com/cahyamifth" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="contact-card contact-email" data-aos="fade-down" data-aos-delay="300">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" />
+      <a href="mailto:cahyamift@gmail.com">Gmail</a>
+    </div>
+  </div>
+</section>
 
-/* Skills bar container */
-.skills-container .skill {
-  margin-bottom: 20px;
-}
+<!-- =======================
+     JAVASCRIPT SECTION
+======================== -->
 
-.skill-bar-bg {
-  background-color: #333;
-  border-radius: 8px;
-  overflow: hidden;
-  height: 18px;
-  margin: 6px 0;
-}
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-.skill-bar-fill {
-  background-color: #007bff;
-  height: 100%;
-  width: calc(var(--skill-level) * 20%);
-  transition: width 1s ease-in-out;
-  border-radius: 8px 0 0 8px;
-}
-
-/* Skill level text */
-.skill-level {
-  font-weight: 600;
-  margin-left: 8px;
-  color: #ddd;
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .about-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-side,
-  .about-center {
-    min-width: 100%;
-  }
-}
-</style>
-
+<!-- AOS INIT & SKILL BAR ANIMATION -->
 <script>
+  // Inisialisasi AOS dan animasi skill bar
   document.addEventListener('DOMContentLoaded', () => {
     AOS.init();
 
@@ -711,34 +678,9 @@ nav a.active {
   });
 </script>
 
-
-<section id="contact">
-  <h2 style="text-align:center;" data-aos="fade-down">Contact</h2>
-  <div class="contact-container">
-    <div class="contact-card contact-whatsapp" data-aos="fade-down">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-      <a href="https://wa.me/62895344440523" target="_blank" rel="noopener">WhatsApp</a>
-    </div>
-    <div class="contact-card contact-instagram" data-aos="fade-down" data-aos-delay="100">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" />
-      <a href="https://instagram.com/cahyamift" target="_blank" rel="noopener">Instagram</a>
-    </div>
-    <div class="contact-card contact-github" data-aos="fade-down" data-aos-delay="200">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" />
-      <a href="https://github.com/cahyamifth" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <div class="contact-card contact-email" data-aos="fade-down" data-aos-delay="300">
-     <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" />
-     <a href="mailto:cahyamift@gmail.com">Gmail</a>
-    </div>
-  </div>
-</section>
-
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- NAVIGATION ACTIVE LINK ON SCROLL -->
 <script>
-  AOS.init();
-
+  // Highlight nav-link sesuai section yang sedang tampil
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav-link");
 
@@ -760,11 +702,12 @@ nav a.active {
   });
 </script>
 
+<!-- CV BUTTON ANIMATION ON SCROLL -->
 <script>
+  // Tampilkan tombol CV saat scroll
   window.addEventListener('scroll', function () {
     const cvButton = document.getElementById('cv-button-wrapper');
-    const triggerHeight = 100; // bisa kamu sesuaikan
-
+    const triggerHeight = 100;
     if (window.scrollY > triggerHeight) {
       cvButton.classList.add('visible');
     } else {
@@ -773,21 +716,20 @@ nav a.active {
   });
 </script>
 
-
+<!-- NAVIGATION ACTIVE LINK (ALTERNATIF) -->
 <script>
+  // Alternatif highlight nav-link (boleh dihapus jika tidak perlu)
   const links = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section');
+  const pageSections = document.querySelectorAll('section');
 
   window.addEventListener('scroll', () => {
     let current = '';
-
-    sections.forEach((section) => {
+    pageSections.forEach((section) => {
       const sectionTop = section.offsetTop - 80;
       if (pageYOffset >= sectionTop) {
         current = section.getAttribute('id');
       }
     });
-
     links.forEach((link) => {
       link.classList.remove('active');
       if (link.getAttribute('href').includes(current)) {
