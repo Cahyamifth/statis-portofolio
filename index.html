@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cahyamift | Portfolio</title>
 
   <!-- AOS CSS -->
@@ -100,7 +101,7 @@ nav a.active {
 
 
     section {
-      padding: 120px 80px 60px;
+      padding: 120px 20px 60px;
       min-height: 100vh;
       box-sizing: border-box;
     }
@@ -196,19 +197,16 @@ nav a.active {
       z-index: -1;
     }
 
-    
-   .projects-grid {
+    .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* fleksibel */
+  grid-template-columns: repeat(4, 1fr); /* 4 kolom */
   gap: 30px;
-  padding: 40px 20px;
-  max-width: 1200px;
+  padding: 40px;
+  max-width: 1200px; /* sesuaikan lebar maksimal */
   margin: auto;
   position: relative;
   z-index: 2;
-}
-
-
+    }
 
     .project-card {
       background: rgba(0, 0, 0, 0.8);
@@ -423,18 +421,12 @@ nav a.active {
 
     /* Media query untuk mode desktop kecil / tablet kecil */
 @media (min-width: 481px) and (max-width: 1024px) {
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* fleksibel */
-  gap: 30px;
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: auto;
-  position: relative;
-  z-index: 2;
-}
-
-
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* ubah dari 4 kolom ke 2 kolom */
+    gap: 25px;
+    padding: 30px 20px;
+    max-width: 900px;
+  }
 
   .avatar {
     width: 180px; /* kecilkan avatar agar muat */
@@ -445,7 +437,7 @@ nav a.active {
   }
 
   section {
-    padding: 100px 80px 50px;
+    padding: 100px 15px 50px;
   }
 }
 
@@ -464,15 +456,10 @@ nav a.active {
   }
 
   .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* fleksibel */
-  gap: 30px;
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: auto;
-  position: relative;
-  z-index: 2;
-}
+    grid-template-columns: 1fr !important; /* 1 kolom untuk mobile */
+    gap: 20px;
+    padding: 20px 10px;
+  }
 
   .project-card {
     padding-bottom: 15px;
@@ -630,7 +617,6 @@ nav a.active {
         <span class="skill-level">3 / 5</span>
       </div>
     </div>
-    </div>
     </section>
 <style>
  .about-grid {
@@ -725,6 +711,7 @@ nav a.active {
   });
 </script>
 
+
 <section id="contact">
   <h2 style="text-align:center;" data-aos="fade-down">Contact</h2>
   <div class="contact-container">
@@ -809,25 +796,6 @@ nav a.active {
     });
   });
 </script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  });
-
-  const target = document.querySelector("#cv-button-wrapper");
-  if (target) {
-    observer.observe(target);
-  }
-});
-</script>
-
 
 </body>
 </html>
