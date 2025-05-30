@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="assets/img/favicon.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cahyamift | Portfolio</title>
 
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
+
+    .signature-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .signature-container {
+    padding: 10px;
+  }
+}
+
+
     body {
       margin: 0;
       font-family: "Times New Roman", Times, serif;
@@ -57,6 +74,14 @@ nav a.active {
   font-weight: bold;
 }
 
+#home {
+    min-height: 100vh;
+}
+
+#home h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
 /* Media query untuk layar kecil / hp */
 @media (max-width: 480px) {
   header {
@@ -75,10 +100,26 @@ nav a.active {
 
 
     section {
-      padding: 120px 20px 60px;
+      padding: 120px 80px 60px;
       min-height: 100vh;
       box-sizing: border-box;
     }
+
+
+/* Saat ditampilkan */
+#cv-button-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+/*saat disembunyikan */
+#cv-button-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
     #home {
       position: relative;
@@ -155,16 +196,19 @@ nav a.active {
       z-index: -1;
     }
 
-    .projects-grid {
+    
+   .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* fleksibel */
   gap: 30px;
-  padding: 40px;
-  max-width: 1200px; /* sesuaikan lebar maksimal */
+  padding: 40px 20px;
+  max-width: 1200px;
   margin: auto;
   position: relative;
   z-index: 2;
-    }
+}
+
+
 
     .project-card {
       background: rgba(0, 0, 0, 0.8);
@@ -330,14 +374,67 @@ nav a.active {
       font-weight: 600;
     }
 
+    #home {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.btn-download-cv {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 1rem;
+}
+
+
+    .btn-download-cv {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-download-cv:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 480px) {
+    #home h1 {
+        font-size: 1.8rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+
+    .btn-download-cv {
+        width: 80%;
+        font-size: 0.95rem;
+    }
+}
+
+
     /* Media query untuk mode desktop kecil / tablet kecil */
 @media (min-width: 481px) and (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr); /* ubah dari 4 kolom ke 2 kolom */
-    gap: 25px;
-    padding: 30px 20px;
-    max-width: 900px;
-  }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* fleksibel */
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+
 
   .avatar {
     width: 180px; /* kecilkan avatar agar muat */
@@ -348,7 +445,7 @@ nav a.active {
   }
 
   section {
-    padding: 100px 15px 50px;
+    padding: 100px 80px 50px;
   }
 }
 
@@ -367,10 +464,15 @@ nav a.active {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr !important; /* 1 kolom untuk mobile */
-    gap: 20px;
-    padding: 20px 10px;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* fleksibel */
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
 
   .project-card {
     padding-bottom: 15px;
@@ -426,9 +528,16 @@ nav a.active {
   <div class="avatar" data-aos="zoom-in">
     <img src="assets/img/IMG_45656.png" alt="Foto Cahya" />
   </div>
-  <h1 data-aos="fade-up">Cahya Miftahul Falah</h1>
+  <h1 data-aos="fade-up" data-aos-delay="100">Cahya Miftahul Falah</h1>
   <p data-aos="fade-up" data-aos-delay="200">S1 Informatika | Cyber Security Enthusiast</p>
+  
+  <div id="cv-button-wrapper" data-aos="fade-up" data-aos-delay="300">
+  <a href="https://drive.google.com/your-cv-link-here" target="_blank" class="btn-download-cv">
+    Download CV
+  </a>
+</div>
 </section>
+
 
 <section id="portfolio">
   <h2 style="text-align:center;" data-aos="fade-up">My Projects</h2>
@@ -459,7 +568,7 @@ nav a.active {
     <div class="project-card" data-aos="fade-up">
       <img src="https://via.placeholder.com/300x180" alt="UI/UX">
       <div style="padding: 10px 15px;">
-        <h3>INDONERIS IT COMPETTION</h3>
+        <h3>INDONERIS IT COMPETITION</h3>
         <p><strong>Peran:</strong> Fullstack Developer</p>
         <p>Aplikasi transaksi dan stok produk konter berbasis web responsif.</p>
       </div>
@@ -468,7 +577,7 @@ nav a.active {
 
     <!-- Project 4 -->
     <div class="project-card" data-aos="fade-up">
-      <img src="https://via.placeholder.com/300x180" alt="APLIKASI WEB PENGELOLA OBAT">
+      <img src="#" alt="APLIKASI WEB PENGELOLA OBAT">
       <div style="padding: 10px 15px;">
         <h3>KLINIK DOKTER ANITA PURBA</h3>
         <p><strong>Peran:</strong> Frontend Developer</p>
@@ -480,23 +589,141 @@ nav a.active {
 </section>
 
 
+
 <section id="about">
   <h2 style="text-align:center; margin-bottom: 40px;" data-aos="fade-up">About Me</h2>
-  <div class="about-container">
-    <div class="about-card" data-aos="fade-up">
-      <a href="https://goo.gl/maps/xyz123" target="_blank" rel="noopener">SDN KARAPIAK II</a>
+  
+  <div class="about-grid">
+    
+    <!-- Hobi -->
+    <div class="about-side left" data-aos="fade-right">
+      <h3>Hobi</h3>
+      <ul>
+        <li>🎵 Musik</li>
+        <li>💻 Programming</li>
+      </ul>
     </div>
-    <div class="about-card" data-aos="fade-up" data-aos-delay="200">
-      <a href="#">SMK GUNA DHARMA NUSANTARA</a>
+
+    <!-- Pendidikan -->
+    <div class="about-center" data-aos="fade-up">
+      <div class="about-card"><a href="https://goo.gl/maps/xyz123" target="_blank">SDN KARAPIAK II</a></div>
+      <div class="about-card"><a href="#">SMP FK BINA MUDA</a></div>
+      <div class="about-card"><a href="#">SMK GUNA DHARMA NUSANTARA</a></div>
+      <div class="about-card"><a href="https://unibi.ac.id" target="_blank">UNIVERSITAS INFORMATIKA DAN BISNIS INDONESIA</a></div>
     </div>
-    <div class="about-card" data-aos="fade-up" data-aos-delay="300">
-      <a href="#">SMP FK BINA MUDA</a>
+
+    <!-- Skill -->
+    <div class="about-side right skills-container" data-aos="fade-left">
+      <h3>Skills</h3>
+      <div class="skill">
+        <span>Programming</span>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="--skill-level: 4;"></div>
+        </div>
+        <span class="skill-level">4 / 5</span>
+      </div>
+      <div class="skill">
+        <span>Design</span>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="--skill-level: 3;"></div>
+        </div>
+        <span class="skill-level">3 / 5</span>
+      </div>
     </div>
-    <div class="about-card" data-aos="fade-up" data-aos-delay="100">
-      <a href="https://unibi.ac.id" target="_blank" rel="noopener">UNIVERSITAS INFORMATIKA DAN BISNIS INDONESIA</a>
     </div>
-  </div>
-</section>
+    </section>
+<style>
+ .about-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.about-side,
+.about-center {
+  flex: 1 1 250px;
+  min-width: 250px;
+}
+
+/* Skills bar container */
+.skills-container .skill {
+  margin-bottom: 20px;
+}
+
+.skill-bar-bg {
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 18px;
+  margin: 6px 0;
+}
+
+.skill-bar-fill {
+  background-color: #007bff;
+  height: 100%;
+  width: calc(var(--skill-level) * 20%);
+  transition: width 1s ease-in-out;
+  border-radius: 8px 0 0 8px;
+}
+
+/* Skill level text */
+.skill-level {
+  font-weight: 600;
+  margin-left: 8px;
+  color: #ddd;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .about-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-side,
+  .about-center {
+    min-width: 100%;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    AOS.init();
+
+    const skillSection = document.querySelector('.skills-container');
+    const skillBars = document.querySelectorAll('.skill-bar-fill');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            skillBars.forEach((bar) => {
+              let level = bar.style.getPropertyValue('--skill-level');
+              let percent = (parseInt(level) / 5) * 100;
+              bar.style.width = percent + '%';
+            });
+          } else {
+            skillBars.forEach((bar) => {
+              bar.style.width = '0%';
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    observer.observe(skillSection);
+  });
+</script>
 
 <section id="contact">
   <h2 style="text-align:center;" data-aos="fade-down">Contact</h2>
@@ -545,6 +772,62 @@ nav a.active {
     });
   });
 </script>
+
+<script>
+  window.addEventListener('scroll', function () {
+    const cvButton = document.getElementById('cv-button-wrapper');
+    const triggerHeight = 100; // bisa kamu sesuaikan
+
+    if (window.scrollY > triggerHeight) {
+      cvButton.classList.add('visible');
+    } else {
+      cvButton.classList.remove('visible');
+    }
+  });
+</script>
+
+
+<script>
+  const links = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 80;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    links.forEach((link) => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').includes(current)) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  const target = document.querySelector("#cv-button-wrapper");
+  if (target) {
+    observer.observe(target);
+  }
+});
+</script>
+
 
 </body>
 </html>
